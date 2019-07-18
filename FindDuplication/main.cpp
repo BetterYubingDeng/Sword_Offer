@@ -64,7 +64,47 @@ void test(char* testName, int numbers[], int lengthNumbers, int expected[], int 
        printf("Failed.Invalid test example.\n");
    }
 }
+
+///具体测试用例
+void test_one()
+{
+    char * testNameOne = "Test1";
+    int number[] = { 2, 4, 3, 1, 4 };
+    int duplicate[] = {4};
+    test(testNameOne,number, sizeof(number)/ sizeof(int),duplicate, sizeof(duplicate)/ sizeof(int), true);
+}
+
+void test2()
+{
+    int numbers[] = { 2, 4, 3, 1, 4 ,3};
+    int duplications[] = { 3 , 4};
+    char* testTwo = "Test2";
+    test(testTwo,numbers, sizeof(numbers) / sizeof(int), duplications, sizeof(duplications) / sizeof(int), true);
+}
+
+// 数组中存在多个重复的数字
+void test3()
+{
+    int numbers[] = { 2, 4, 2, 1, 4 };
+    int duplications[] = { 2, 4 };
+    char* testThreee = "Test3";
+    test(testThreee, numbers, sizeof(numbers) / sizeof(int), duplications, sizeof(duplications) / sizeof(int), true);
+}
+
+// 没有重复的数字
+void test4()
+{
+    int numbers[] = { 2, 1, 3, 0, 4 };
+    int duplications[] = { -1 }; // not in use in the test function"
+    char* testFour = "Test4";
+    test(testFour, numbers, sizeof(numbers) / sizeof(int), duplications, sizeof(duplications) / sizeof(int), false);
+}
+
 int main()
 {
+    test_one();
+    test2();
+    test3();
+    test4();
     return 0;
 }
