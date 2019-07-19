@@ -55,6 +55,11 @@ void test(char* testName,int* numbers,int numlen,int* duplication,int duplength)
 {
     printf("%s:",testName);
     int dupTemp = getDuplicatoin(numbers,numlen);
+    if(numbers == NULL)
+    {
+        printf("Failed.\n");
+        return;
+    }
     for (int i = 0; i < duplength; ++i) {
         if(dupTemp == duplication[i]) {
             printf("Passed.\n");
@@ -75,8 +80,55 @@ void testOne()
     test(test01,numbers, sizeof(numbers)/ sizeof(int),dup, sizeof(dup)/ sizeof(int));
 }
 
+///2.单个重复数字
+void testTwo()
+{
+    int numbers[] = {2,3,1,4,5,2};
+    int dup[] ={2};
+    char* test02 = "testTwo";
+    test(test02,numbers, sizeof(numbers)/ sizeof(int),dup, sizeof(dup)/ sizeof(int));
+}
+
+///4.一个数字重复三次
+void testThree()
+{
+    int numbers[] = {2,3,1,4,5,7,2,3,2};
+    int dup[] = {1,2,3};
+    char* test03 = "testThree";
+    test(test03,numbers, sizeof(numbers)/ sizeof(int),dup, sizeof(dup)/ sizeof(int));
+}
+///3.重复数组中仅有两个数字
+void testFour()
+{
+    int numbers[] = {1,1};
+    int dup[] = {1,2,3};
+    char* test04 = "testFour";
+    test(test04,numbers, sizeof(numbers)/ sizeof(int),dup, sizeof(dup)/ sizeof(int));
+}
+///5.数组中无重复数字
+void testFive()
+{
+    int numbers[] = {1,2,3,4,5,6};
+    int dup[] = {1,2,3};
+    char* test05 = "testFive";
+    test(test05,numbers, sizeof(numbers)/ sizeof(int),dup, sizeof(dup)/ sizeof(int));
+}
+///6.无效输入
+void testSix()
+{
+    int* numbers = nullptr;
+    int dup[] = {-1};
+    char* test06 = "testSix";
+    test(test06,numbers, sizeof(numbers)/ sizeof(int),dup, sizeof(dup)/ sizeof(int));
+}
+
 int main()
 {
     testOne();
+    testTwo();
+    testThree();
+    testFour();
+    testFive();
+    testSix();
     return 0;
 }
