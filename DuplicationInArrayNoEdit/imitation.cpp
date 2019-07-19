@@ -40,13 +40,43 @@ int getDuplicatoin(const int* numbers,int length)
                 break;
             }
         }
-        if(count > (middle - start) + 1)
+        if(count > (middle - start + 1))
         {
-            middle = end;
+            end = middle;
         } else{
             start = middle + 1;
         }
     }
-
     return -1;
+}
+
+///测试代码
+void test(char* testName,int* numbers,int numlen,int* duplication,int duplength)
+{
+    printf("%s:",testName);
+    int dupTemp = getDuplicatoin(numbers,numlen);
+    for (int i = 0; i < duplength; ++i) {
+        if(dupTemp == duplication[i]) {
+            printf("Passed.\n");
+            return;
+        }
+    }
+    printf("Failed.\n");
+}
+
+///测试案例
+
+///1.多个重复数字
+void testOne()
+{
+    int numbers[] = {2,3,1,4,5,2,3,2};
+    int dup[] = {2,3};
+    char* test01 = "testOne";
+    test(test01,numbers, sizeof(numbers)/ sizeof(int),dup, sizeof(dup)/ sizeof(int));
+}
+
+int main()
+{
+    testOne();
+    return 0;
 }
