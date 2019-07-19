@@ -3,4 +3,4 @@ project(Sword_Offer)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Sword_Offer FindDuplication/main.cpp DuplicationInArrayNoEdit/DuplicationInArrayNoEdit.cpp)
+add_executable(Sword_Offer FindDuplication/main.cpp DuplicationInArrayNoEdit/DuplicationInArrayNoEdit.cpp DuplicationInArrayNoEdit/imitation.cpp)
